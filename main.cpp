@@ -1,16 +1,26 @@
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
+#include "mainwindow.h"
+
+#include <QDebug>
+#include <QDesktopWidget>
+#include <QApplication>
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication a(argc, argv);
 
-    QGuiApplication app(argc, argv);
+    QDesktopWidget* d=QApplication::desktop();
 
-    QQmlApplicationEngine engine;
-    engine.load(QUrl(QStringLiteral("qrc:/main.qml")));
-    if (engine.rootObjects().isEmpty())
-        return -1;
+    qDebug()<<"屏幕的宽 = "<<QDesktopWidget().widthMM ()<<"mm";
 
-    return app.exec();
+    qDebug()<<"屏幕的高 = "<<QDesktopWidget().heightMM()<<"mm";
+
+    qDebug()<<"分辨率宽 = "<<d->width();
+
+    qDebug()<<"分辨率高 = "<<d->height();
+
+    MainWindow w;
+    w.show();
+
+
+    return a.exec();
 }
