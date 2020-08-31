@@ -2,6 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QDebug>
+#include <QDesktopWidget>
+#include <QApplication>
+#include <QtNetWork>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,6 +20,7 @@ public:
     ~MainWindow();
 
 private slots:
+    void sendMessage();
     void on_pushButton_clicked();
 
 private:

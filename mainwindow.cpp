@@ -6,6 +6,16 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    //测试打印
+    QDesktopWidget* d=QApplication::desktop();
+    qDebug()<<"屏幕的宽 = "<<QDesktopWidget().widthMM ()<<"mm";
+    qDebug()<<"屏幕的高 = "<<QDesktopWidget().heightMM()<<"mm";
+    qDebug()<<"分辨率宽 = "<<d->width();
+    qDebug()<<"分辨率高 = "<<d->height();
+
+    //开启socekt
+    QTcpServer *tcpServer;
 }
 
 MainWindow::~MainWindow()
