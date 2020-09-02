@@ -5,7 +5,7 @@
 #include <QDebug>
 #include <QDesktopWidget>
 #include <QApplication>
-#include <QtNetWork>
+#include <QtNetwork>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,10 +20,16 @@ public:
     ~MainWindow();
 
 private slots:
-    void sendMessage();
+    void onNewConnection();
+
+    void onReadyRead();
+
+    void sendMessage(QTcpSocket *clientConnection);
+
     void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
+    QTcpServer *tcpServer;
 };
 #endif // MAINWINDOW_H
